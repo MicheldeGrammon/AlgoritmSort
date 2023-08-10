@@ -47,30 +47,30 @@ namespace AlgoritmSort.Tests
         [TestMethod()]
         public void CocktailSortTest()
         {
-            var insertSort = new CocktailSort<int>();
+            var cocktailSort = new CocktailSort<int>();
 
-            insertSort.Items.AddRange(Items);
+            cocktailSort.Items.AddRange(Items);
 
-            insertSort.Sort();
+            cocktailSort.Sort();
 
             for (int i = 0; i < Items.Count; i++)
             {
-                Assert.AreEqual(Sorted[i], insertSort.Items[i]);
+                Assert.AreEqual(Sorted[i], cocktailSort.Items[i]);
             }
         }
 
         [TestMethod()]
         public void ShellSortTest()
         {
-            var insertSort = new ShellSort<int>();
+            var shellSort = new ShellSort<int>();
 
-            insertSort.Items.AddRange(Items);
+            shellSort.Items.AddRange(Items);
 
-            insertSort.Sort();
+            shellSort.Sort();
 
             for (int i = 0; i < Items.Count; i++)
             {
-                Assert.AreEqual(Sorted[i], insertSort.Items[i]);
+                Assert.AreEqual(Sorted[i], shellSort.Items[i]);
             }
         }
 
@@ -88,15 +88,45 @@ namespace AlgoritmSort.Tests
         [TestMethod()]
         public void SelectionSortTest()
         {
-            var insertSort = new SelectionSort<int>();
+            var selectionSort = new SelectionSort<int>();
 
-            insertSort.Items.AddRange(Items);
+            selectionSort.Items.AddRange(Items);
 
-            insertSort.Sort();
+            selectionSort.Sort();
 
             for (int i = 0; i < Items.Count; i++)
             {
-                Assert.AreEqual(Sorted[i], insertSort.Items[i]);
+                Assert.AreEqual(Sorted[i], selectionSort.Items[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void BubbleSortTest()
+        {
+            var bubbleSort = new BubbleSort<int>();
+
+            bubbleSort.Items.AddRange(Items);
+
+            bubbleSort.Sort();
+
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], bubbleSort.Items[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void RadixSortTest()
+        {
+            var radixSort = new RadixSort<int>();
+
+            radixSort.Items.AddRange(Items);
+
+            radixSort.Sort();
+
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], radixSort.Items[i]);
             }
         }
     }

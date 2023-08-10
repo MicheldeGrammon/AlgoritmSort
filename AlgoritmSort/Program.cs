@@ -4,12 +4,12 @@
     {
         static void Main(string[] args)
         {
-            var list = new List<int>() { 1,3,5,2,6,8,1,4,9,3};
+            var list = new List<int>() { 1,32,5,2,6,8,1,4,91,322, 10};
 
             var randomList = new List<int>();
 
 
-            var mySort = new SelectionSort<int>();
+            var mySort = new RadixSort<int>();
 
             mySort.Items.AddRange(list);
             mySort.Sort();

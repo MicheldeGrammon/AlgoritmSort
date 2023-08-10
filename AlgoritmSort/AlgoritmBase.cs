@@ -8,6 +8,7 @@ namespace AlgoritmSort
 {
     public abstract class AlgoritmBase<T> where T : IComparable
     {
+        //Коллекция которую будем сортировать
         public List<T> Items { get; set; } = new List<T>();
 
         public int countSwap { get; set; } = 0;
