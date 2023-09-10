@@ -27,7 +27,7 @@ namespace AlgoritmSort
 
                 while (index > 0 && temp.CompareTo(Items[index - 1]) == -1)
                 {
-                    Swap(index, index-1);
+                    Swap(index, index - 1);
                     index--;
                 }
             }

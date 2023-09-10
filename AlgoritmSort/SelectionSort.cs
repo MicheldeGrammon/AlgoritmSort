@@ -18,17 +18,17 @@ namespace AlgoritmSort
 
         public override void Sort()
         {
-            for (int i = 0; i < Items.Count-1; i++)
+            for (int i = 0; i < Items.Count - 1; i++)
             {
                 int index = i;
-                for(int j = index+1; j < Items.Count; j++) 
-                { 
+                for (int j = index + 1; j < Items.Count; j++)
+                {
                     if (Items[j].CompareTo(Items[index]) == -1)
                     {
                         index = j;
                     }
                 }
-                Swap(index, i );
+                Swap(index, i);
             }
         }
     }

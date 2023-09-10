@@ -44,9 +44,8 @@ namespace AlgoritmSort
                 { 8, new Queue<T>() },
                 { 9, new Queue<T>() },
             };
-            // !!! в данном случай алгоритмы будет работать только на целых числах
+            // ВНИМАНИЕ!!! в данном случай алгоритмы будет работать только на положительных целых числах
 
-            //var items = Items.Select(x => Convert.ToInt32(x)).ToList();
             var countItems = Items.Count;
             var maxLength = GetMaxLength();
 

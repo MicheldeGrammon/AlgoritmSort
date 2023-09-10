@@ -38,7 +38,7 @@ namespace AlgoritmSort
 
             var mid = items.Count / 2;
 
-            var left = items.Take(mid).ToList(); //для удобаства и понимая не IEnumerable
+            var left = items.Take(mid).ToList(); //для удобаства не IEnumerable
             var right = items.Skip(mid).ToList();
 
             return Merge(Sort(left), Sort(right));
@@ -52,16 +52,16 @@ namespace AlgoritmSort
             var leftIndex = 0;
             var rightIndex = 0;
 
-            while (length > 0) 
-            { 
-                if (leftIndex < left.Count && rightIndex < right.Count) 
-                { 
+            while (length > 0)
+            {
+                if (leftIndex < left.Count && rightIndex < right.Count)
+                {
                     if (left[leftIndex].CompareTo(right[rightIndex]) == -1)
                     {
                         result.Add(left[leftIndex]);
                         leftIndex++;
                     }
-                    else 
+                    else
                     {
                         result.Add(right[rightIndex]);
                         rightIndex++;
@@ -69,7 +69,7 @@ namespace AlgoritmSort
                 }
                 else
                 {
-                    if (rightIndex == right.Count) 
+                    if (rightIndex == right.Count)
                     {
                         result.Add(left[leftIndex]);
                         leftIndex++;

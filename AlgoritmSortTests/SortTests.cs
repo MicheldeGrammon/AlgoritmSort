@@ -13,32 +13,33 @@ namespace AlgoritmSort.Tests
     {
         Random rnd = new Random();
 
-        List<int> Items = new List<int>();
+        List<int> RandomItems = new List<int>();
         List<int> Sorted = new List<int>();
 
         [TestInitialize]
         public void Init()
         {
-            Items.Clear();
-            for (int i = 0; i < 10000; i++)
+            RandomItems.Clear();
+            for (int i = 0; i < 100000; i++)
             {
-                Items.Add(rnd.Next(0, 1000));
+                RandomItems.Add(rnd.Next(0, 1000));
             }
+
             Sorted.Clear();
-            Sorted.AddRange(Items);
-            Sorted.Sort();
+            Sorted.AddRange(RandomItems.OrderBy(x => x).ToArray());
         }
+
 
         [TestMethod()]
         public void InsertSortTest()
         {
             var insertSort = new InsertSort<int>();
 
-            insertSort.Items.AddRange(Items);
+            insertSort.Items.AddRange(RandomItems);
 
             insertSort.Sort();
 
-            for (int i = 0; i < Items.Count; i++)
+            for (int i = 0; i < RandomItems.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], insertSort.Items[i]);
             }
@@ -49,11 +50,11 @@ namespace AlgoritmSort.Tests
         {
             var cocktailSort = new CocktailSort<int>();
 
-            cocktailSort.Items.AddRange(Items);
+            cocktailSort.Items.AddRange(RandomItems);
 
             cocktailSort.Sort();
 
-            for (int i = 0; i < Items.Count; i++)
+            for (int i = 0; i < RandomItems.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], cocktailSort.Items[i]);
             }
@@ -64,11 +65,11 @@ namespace AlgoritmSort.Tests
         {
             var shellSort = new ShellSort<int>();
 
-            shellSort.Items.AddRange(Items);
+            shellSort.Items.AddRange(RandomItems);
 
             shellSort.Sort();
 
-            for (int i = 0; i < Items.Count; i++)
+            for (int i = 0; i < RandomItems.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], shellSort.Items[i]);
             }
@@ -77,11 +78,15 @@ namespace AlgoritmSort.Tests
         [TestMethod()]
         public void DefaultSortTest()
         {
-            Items.Sort();
+            var defautSort = new List<int>();
 
-            for (int i = 0; i < Items.Count; i++)
+            defautSort.AddRange(RandomItems);
+
+            defautSort.Sort();
+
+            for (int i = 0; i < RandomItems.Count; i++)
             {
-                Assert.AreEqual(Sorted[i], Items[i]);
+                Assert.AreEqual(Sorted[i], defautSort[i]);
             }
         }
 
@@ -90,11 +95,11 @@ namespace AlgoritmSort.Tests
         {
             var selectionSort = new SelectionSort<int>();
 
-            selectionSort.Items.AddRange(Items);
+            selectionSort.Items.AddRange(RandomItems);
 
             selectionSort.Sort();
 
-            for (int i = 0; i < Items.Count; i++)
+            for (int i = 0; i < RandomItems.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], selectionSort.Items[i]);
             }
@@ -105,11 +110,11 @@ namespace AlgoritmSort.Tests
         {
             var bubbleSort = new BubbleSort<int>();
 
-            bubbleSort.Items.AddRange(Items);
+            bubbleSort.Items.AddRange(RandomItems);
 
             bubbleSort.Sort();
 
-            for (int i = 0; i < Items.Count; i++)
+            for (int i = 0; i < RandomItems.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], bubbleSort.Items[i]);
             }
@@ -120,11 +125,11 @@ namespace AlgoritmSort.Tests
         {
             var radixSort = new RadixSort<int>();
 
-            radixSort.Items.AddRange(Items);
+            radixSort.Items.AddRange(RandomItems);
 
             radixSort.Sort();
 
-            for (int i = 0; i < Items.Count; i++)
+            for (int i = 0; i < RandomItems.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], radixSort.Items[i]);
             }
@@ -135,13 +140,28 @@ namespace AlgoritmSort.Tests
         {
             var mergeSort = new MergeSort<int>();
 
-            mergeSort.Items.AddRange(Items);
+            mergeSort.Items.AddRange(RandomItems);
 
             mergeSort.Sort();
 
-            for (int i = 0; i < Items.Count; i++)
+            for (int i = 0; i < RandomItems.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], mergeSort.Items[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void QuickSortTest()
+        {
+            var quickSort = new QuickSort<int>();
+
+            quickSort.Items.AddRange(RandomItems);
+
+            quickSort.Sort();
+
+            for (int i = 0; i < RandomItems.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], quickSort.Items[i]);
             }
         }
     }
